@@ -1,0 +1,57 @@
+Now that we've built a basic router, the next step is to learn how to interact with a MySQL database.
+Creating a Database
+
+You can create a database directly from the terminal:
+
+mysql -u root
+CREATE DATABASE myapp;
+(CREATE DATABASE simpleBlog;)
+
+Alternatively, use a GUI like TablePlus to create and manage your database visually. Connect to localhost on port 3306 with user root and no password (for local development).
+Creating a Table
+
+Within your database, create a table for blog posts. Think of a table like an Excel spreadsheet or a web form.
+
+Common columns might include:
+
+    id (primary key, auto-incrementing)
+    title (e.g., VARCHAR(255), not nullable)
+
+Example column definition:
+
+    Name: title
+    Type: VARCHAR(255)
+    Nullable: No
+    Default: None
+
+Save the table to persist the structure.
+Adding Data
+
+Insert records into your table. The id will auto-increment:
+id 	title
+1 	My first blog post
+2 	My second blog post
+Relational Databases
+
+In real applications, you might add more columns like post body, status (draft, published), and relationships to other tables, such as a users table to track authorship.
+
+This linking of tables is what makes a database relational.
+
+Basic SQL Queries
+
+To select all records from the posts table:
+
+SELECT * FROM posts;
+
+You can also select specific columns:
+
+SELECT id FROM posts;
+SELECT title FROM posts;
+SELECT id, title FROM posts;
+
+Add a WHERE clause to filter results:
+
+SELECT * FROM posts WHERE id = 1;
+
+if you work from simple `php -S localhost:8080` the `#dsn` must be
+$dsn = 'mysql:host=127.0.0.1;port=3306;dbname=YOUR_DB_NAME;charset=utf8mb4';
